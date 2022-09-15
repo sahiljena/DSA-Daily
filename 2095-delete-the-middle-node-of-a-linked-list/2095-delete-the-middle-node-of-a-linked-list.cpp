@@ -10,24 +10,21 @@
  */
 class Solution {
 public:
+    int calcMid(ListNode* head){
+        if(head==NULL) return 0;
+        return 1+calcMid(head->next);
+    }
+    void helper(ListNode* head, int mid){
+        if(mid-1==0){
+            head->next=head->next->next;
+            return;
+        }
+        helper(head->next,mid-1);
+    }
     ListNode* deleteMiddle(ListNode* head) {
-        ListNode* temp = head;
-        int c = 0;
-        while(temp){
-            temp=temp->next;
-            ++c;
-        }
-        if(c==1) return NULL; 
-        int mid = c/2;
-        temp=head;
-        while(temp){
-            if(mid-1==0){
-                temp->next=temp->next->next;
-                break;
-            }
-            temp=temp->next;
-            --mid;
-        }
+        int len = calcMid(head); 
+        if(len==1) return NULL;
+        helper(head,len/2);
         return head;
     }
 };
