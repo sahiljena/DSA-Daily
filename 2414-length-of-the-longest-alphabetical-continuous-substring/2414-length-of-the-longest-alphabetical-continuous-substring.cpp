@@ -2,8 +2,6 @@ class Solution {
 public:
     int longestContinuousSubstring(string s) {
         int ans = 0, cnt=1;
-        // vector<int> arr;
-        // for(char i:s) arr.push_back(i-'a');
         for(int i=1;i<s.length();i++){
             if(s[i-1]-'a'+1==s[i]-'a'){
                 cnt+=1;
