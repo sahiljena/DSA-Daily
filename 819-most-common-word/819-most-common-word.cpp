@@ -1,7 +1,6 @@
 class Solution {
 public:
     string mostCommonWord(string paragraph, vector<string>& banned) {
-        stringstream  ss(paragraph);
         string temp;
         vector<string> words;
         for(char c:paragraph){
