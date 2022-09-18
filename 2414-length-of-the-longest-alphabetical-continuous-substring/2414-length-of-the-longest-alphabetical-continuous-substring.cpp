@@ -7,12 +7,11 @@ public:
         for(char i:s) arr.push_back(i-'a');
         int cnt=1;
         for(int i=1;i<s.length();i++){
-            //cout<<arr[i-1]<<" ";
             if(arr[i-1]+1==arr[i]){
                 cnt+=1;
                 ans=max(ans,cnt);   
             }else cnt=1;
         }
-        return max(cnt,ans);
+        return ans==0?1:ans;
     }
 };
