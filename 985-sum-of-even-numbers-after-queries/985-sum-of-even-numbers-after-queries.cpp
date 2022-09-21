@@ -3,7 +3,7 @@ public:
     vector<int> sumEvenAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
         vector<int> ans;
         int evenSum=0;
-        for(auto i:nums){
+        for(int i:nums){
             if(i%2==0) evenSum+=i;
         }
         for(auto i:queries){
