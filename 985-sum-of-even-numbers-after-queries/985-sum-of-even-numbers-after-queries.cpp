@@ -6,7 +6,6 @@ public:
         for(auto i:nums){
             if(i%2==0) evenSum+=i;
         }
-        //cout<<evenSum<<endl;
         for(auto i:queries){
             if(nums[i[1]]%2==0){
                 if((nums[i[1]]+i[0])%2!=0){
@@ -29,7 +28,6 @@ public:
                 }
             }
         }
-        // if(ans.size()) return ans;
         return ans;
     }
 };
