@@ -3,19 +3,12 @@ public:
     
     int size=0;
     int currSize=0;
-    deque<int> ds;
+    vector<int> ds;
     
     MyCircularQueue(int k) {
         size=k;
     }
     
-    void showdq(deque<int> g)
-    {
-        deque<int>::iterator it;
-        for (it = g.begin(); it != g.end(); ++it)
-            cout <<' '<< *it;
-        cout << '\n';
-    }
     
     bool enQueue(int value) {
         if(currSize>=size) return false;
@@ -28,8 +21,7 @@ public:
     
     bool deQueue() {
         if(currSize==0) return false;
-        ds.pop_front();
-        // showdq(ds);
+        ds.erase(ds.begin());
         currSize--;
         return true;
     }
@@ -43,7 +35,7 @@ public:
     int Rear() {
         // showdq(ds);
         if(currSize==0) return -1;
-        return ds.back();
+        return ds[currSize-1];
     }
     
     bool isEmpty() {
