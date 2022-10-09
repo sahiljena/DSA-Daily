@@ -14,14 +14,18 @@ public:
     bool findTarget(TreeNode* root, int k) {
         stack<TreeNode*> st;
         vector<int> arr;
-        st.push(root);
-        while(!st.empty()){
-            TreeNode* temp = st.top();
+        TreeNode* curr = root;
+        while(curr!=NULL || !st.empty()){
+            while(curr!=NULL){
+                st.push(curr);
+                curr=curr->left;
+            }
+            curr=st.top();
             st.pop();
-            arr.push_back(temp->val);
-            if(temp->left) st.push(temp->left);
-            if(temp->right) st.push(temp->right);
+            arr.push_back(curr->val);
+            curr=curr->right;
         }
+        for(int i:arr) cout<<i<<" ";
         map<int,int> mp;
         for(int i:arr) mp[i]=2;
         for(int i:arr){
