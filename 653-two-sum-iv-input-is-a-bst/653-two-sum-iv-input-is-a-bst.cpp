@@ -25,11 +25,11 @@ public:
             arr.push_back(curr->val);
             curr=curr->right;
         }
-        for(int i:arr) cout<<i<<" ";
-        map<int,int> mp;
-        for(int i:arr) mp[i]=2;
-        for(int i:arr){
-            if(mp[k-i]==2 && k-i!=i) return true;
+        int low=0, high=arr.size()-1;
+        while(low<high){
+            if(arr[low]+arr[high]==k) return true;
+            else if(arr[low]+arr[high]<k) low++;
+            else high--;
         }
         return false;
     }
