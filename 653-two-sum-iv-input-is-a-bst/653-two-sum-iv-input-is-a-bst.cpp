@@ -27,8 +27,9 @@ public:
         }
         int low=0, high=arr.size()-1;
         while(low<high){
-            if(arr[low]+arr[high]==k) return true;
-            else if(arr[low]+arr[high]<k) low++;
+            int sum = arr[low]+arr[high];
+            if(sum==k) return true;
+            else if(sum<k) low++;
             else high--;
         }
         return false;
