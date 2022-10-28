@@ -9,6 +9,7 @@ public:
             else k++;
             n/=2;
         }
+        for(int i:powRange) cout<<i<<" ";
         vector<int>ans;
         int mod=1e9+7;
         for(auto i: queries){
