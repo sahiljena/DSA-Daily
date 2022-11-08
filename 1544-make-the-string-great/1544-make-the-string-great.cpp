@@ -1,25 +1,25 @@
 class Solution {
 public:
     string makeGood(string s) {
-        string ans="";
-        int i=0;
-        while(i<s.length()){
-            if(s[i]==tolower(s[i+1]) && s[i]!=s[i+1]){
-                i+=2;
-                continue;
-            }
-            else{ 
-                int n = ans.length();
-                if(n>=1 && ans[n-1]!=s[i] && tolower(ans[n-1])==tolower(s[i])){
-                    ans.erase(ans.begin()+(n-1));
-                    i++;
+        stack<char>st;
+        
+        for(int i=0;i<s.length();i++){
+            if(st.empty()) st.push(s[i]);
+            else{
+                char temp = st.top();
+                if(temp!=s[i] && tolower(temp)==tolower(s[i])){
+                    st.pop();
                 }
-                else{ 
-                    ans+=s[i];
-                    i++;
-                }
+                else st.push(s[i]);
             }
         }
+        string ans;
+        while(!st.empty()){
+            char temp = st.top();
+            st.pop();
+            ans+=temp;
+        }
+        reverse(ans.begin(),ans.end());
         return ans;
     }
 };
