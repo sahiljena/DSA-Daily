@@ -14,13 +14,12 @@ public:
     vector<int>s;
     void helper(TreeNode* root){
         if(root==nullptr) return;
-        s.push_back(root->val);
         helper(root->left);
+        s.push_back(root->val);
         helper(root->right);
     }
     int countNodes(TreeNode* root) {
         helper(root);
-        //for(auto i:s) cout<<i<<endl;
         return s.size();
     }
 };
