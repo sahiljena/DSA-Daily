@@ -11,15 +11,15 @@
  */
 class Solution {
 public:
-    vector<int>s;
+    int ans = 0;
     void helper(TreeNode* root){
         if(root==nullptr) return;
         helper(root->left);
-        s.push_back(root->val);
+        ans+=1;
         helper(root->right);
     }
     int countNodes(TreeNode* root) {
         helper(root);
-        return s.size();
+        return ans;
     }
 };
