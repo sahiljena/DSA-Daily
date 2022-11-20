@@ -11,15 +11,16 @@
  */
 class Solution {
 public:
-    vector<int> treeArr;
-    void helper(TreeNode* root){
+    
+    void helper(TreeNode* root, vector<int>&treeArr){
         if(!root) return;
-        helper(root->left);
+        helper(root->left, treeArr);
         treeArr.push_back(root->val);
-        helper(root->right);
+        helper(root->right, treeArr);
     }
     vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
-        helper(root);
+        vector<int> treeArr;
+        helper(root,treeArr);
         vector<vector<int>> ans;
         for(int i:queries){
             int minDiff=INT_MAX;
