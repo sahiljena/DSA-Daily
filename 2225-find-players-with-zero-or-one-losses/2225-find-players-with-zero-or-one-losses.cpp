@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
-        vector<vector<int>> ans;
         vector<int> winners;
         vector<int> loosers;
         map<int,pair<int,int>> mp; // key -> {won, lost} ;
@@ -25,10 +24,7 @@ public:
             if(i.second.second==0) winners.push_back(i.first);
             if(i.second.second==1) loosers.push_back(i.first);
         }
-        
-        
-        ans.push_back(winners);
-        ans.push_back(loosers);
-        return ans;
+
+        return {winners,loosers};
     }
 };
