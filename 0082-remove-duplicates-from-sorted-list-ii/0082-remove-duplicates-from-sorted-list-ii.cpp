@@ -12,7 +12,7 @@ class Solution {
 public:
     void delNode(ListNode*&head, ListNode* node){
         ListNode* temp = head;
-        if(temp->val==node->val){
+        if(temp==node){
             head=head->next;
             return;
         }
