@@ -36,18 +36,14 @@ public:
     ListNode* deleteDuplicates(ListNode* head) {
         if(!head) return head;
         ListNode* temp = head;
-        int lst = head->val;
         map<int,int>todel;
         while(temp){
-            if(temp->next && temp->next->val==lst){
-                todel[lst]++;
-            }
+            todel[temp->val]++;
             temp=temp->next;
-            if(temp) lst=temp->val;
         }
         temp=head;
         while(temp){
-            if(todel.find(temp->val)!=todel.end()){
+            if(todel[temp->val]>1){
                 delNode(head,temp);
             }
             temp=temp->next;
